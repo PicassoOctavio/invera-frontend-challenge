@@ -1,9 +1,10 @@
 import { useId } from "react";
-import { PencilIcon, Trash2Icon } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { PencilIcon, Trash2Icon, ArrowUpDown } from "lucide-react";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Button } from "../ui/button";
+import { Checkbox } from "../ui/checkbox";
 import {
   Table,
   TableBody,
@@ -11,30 +12,67 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-
-import { useUsers } from "@/hooks/useUsers";
-//import { useDeleteUser } from "@/hooks/useDeleteUser";
+} from "../ui/table";
+import { useUsers } from "../../hooks/useUsers";
+import { useDeleteUser } from "../../hooks/useDeleteUser";
 import { UserStatus } from "./UserStatus";
 import { UsersTablePagination } from "./UserTablePagination";
 import { UsersTableFilters } from "./UserTableFilters";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store/store";
+
+import type { RootState } from "../../store/store";
+import { setSort } from "../../store/userTable/userTableSlice";
+import type { User } from "@/types/dbResponse/users.response";
 
 export const UsersTable = () => {
   const id = useId();
-  const { data, isLoading } = useUsers();
-  const { limit } = useSelector((state: RootState) => state.usersTable);
-  //const { mutate: deleteUser } = useDeleteUser();
+  const dispatch = useDispatch();
+  const { data, isLoading, isError } = useUsers();
+  const { limit, sortBy, sortOrder } = useSelector(
+    (state: RootState) => state.usersTable,
+  );
+  const { mutate: deleteUser } = useDeleteUser();
 
-  if (isLoading) return <div>Loading...</div>;
+  const handleSort = (column: string) => {
+    if (sortBy === column) {
+      // Si ya está ordenado por esta columna, cambiar el orden
+      dispatch(
+        setSort({
+          sortBy: column,
+          sortOrder: sortOrder === "asc" ? "desc" : "asc",
+        }),
+      );
+    } else {
+      // Si es una nueva columna, ordenar ascendente por defecto
+      dispatch(setSort({ sortBy: column, sortOrder: "asc" }));
+    }
+  };
+
+  const handleDelete = (user: User) => {
+    if (window.confirm(`Are you sure you want to delete ${user.name}?`)) {
+      deleteUser(user.id);
+    }
+  };
+
+  //MEJORAR CON SKELETON
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center h-64">Loading...</div>
+    );
+
+  // CREAR COMPONENTE ERrror
+  if (isError)
+    return (
+      <div className="flex items-center justify-center h-64 text-red-500">
+        Error loading users
+      </div>
+    );
 
   return (
     <div className="w-full space-y-4 rounded-lg border bg-card p-4">
       <div className="flex items-center justify-between">
         <UsersTableFilters />
         <span className="text-sm text-muted-foreground w-40">
-          1 - {limit} of {data?.length}
+          1 - {limit} of {data?.length || 0}
         </span>
       </div>
 
@@ -44,12 +82,64 @@ export const UsersTable = () => {
             <TableHead>
               <Checkbox id={id} />
             </TableHead>
-            <TableHead>Name</TableHead>
+            <TableHead>
+              <Button
+                variant="ghost"
+                className="p-0 hover:bg-transparent"
+                onClick={() => handleSort("name")}
+              >
+                Name
+                {sortBy === "name" && (
+                  <ArrowUpDown
+                    className={`ml-2 h-4 w-4 ${sortOrder === "desc" ? "rotate-180" : ""}`}
+                  />
+                )}
+              </Button>
+            </TableHead>
             <TableHead>Phone</TableHead>
-            <TableHead>Location</TableHead>
-            <TableHead>Company</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="w-0" />
+            <TableHead>
+              <Button
+                variant="ghost"
+                className="p-0 hover:bg-transparent"
+                onClick={() => handleSort("location")}
+              >
+                Location
+                {sortBy === "location" && (
+                  <ArrowUpDown
+                    className={`ml-2 h-4 w-4 ${sortOrder === "desc" ? "rotate-180" : ""}`}
+                  />
+                )}
+              </Button>
+            </TableHead>
+            <TableHead>
+              <Button
+                variant="ghost"
+                className="p-0 hover:bg-transparent"
+                onClick={() => handleSort("company")}
+              >
+                Company
+                {sortBy === "company" && (
+                  <ArrowUpDown
+                    className={`ml-2 h-4 w-4 ${sortOrder === "desc" ? "rotate-180" : ""}`}
+                  />
+                )}
+              </Button>
+            </TableHead>
+            <TableHead>
+              <Button
+                variant="ghost"
+                className="p-0 hover:bg-transparent"
+                onClick={() => handleSort("status")}
+              >
+                Status
+                {sortBy === "status" && (
+                  <ArrowUpDown
+                    className={`ml-2 h-4 w-4 ${sortOrder === "desc" ? "rotate-180" : ""}`}
+                  />
+                )}
+              </Button>
+            </TableHead>
+            <TableHead className="w-0">Actions</TableHead>
           </TableRow>
         </TableHeader>
 
@@ -95,7 +185,7 @@ export const UsersTable = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  //onClick={() => deleteUser(user.id)}
+                  onClick={() => handleDelete(user)}
                 >
                   <Trash2Icon className="h-4 w-4" />
                 </Button>
