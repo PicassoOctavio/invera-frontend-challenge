@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/custom/PageHeader";
 import { StatisticsSection } from "@/components/custom/StatisticsSection";
 import { StatsGrid } from "@/components/custom/StatsGrid";
+import { UsersTable } from "@/components/custom/UsersTable";
 
 export const Dashboard = () => {
   const handleAddNewUser = () => {
@@ -16,6 +17,7 @@ export const Dashboard = () => {
 
       <StatsGrid />
       <StatisticsSection title="Estadistics" />
+      <UsersTable />
     </div>
   );
 };
