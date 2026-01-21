@@ -7,7 +7,7 @@ export const getUsersStatics = async (): Promise<UsersStaticsI> => {
 
     return data;
   } catch (error) {
-    console.log(error);
-    return error;
+    console.error("Error fetching users:", error);
+    throw error;
   }
 };

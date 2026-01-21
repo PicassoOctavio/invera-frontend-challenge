@@ -7,11 +7,9 @@ export const StatisticsSectionSkeleton = () => {
       <CardContent className="p-6">
         <Skeleton className="mb-6 h-6 w-48" /> {/* Título placeholder */}
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-evenly">
-          {/* Círculo placeholder para el gráfico radial */}
           <Skeleton className="size-52 rounded-full" />
 
           <ul className="space-y-3 text-sm">
-            {/* Elementos de lista placeholder */}
             {[...Array(3)].map((_, index) => (
               <li
                 key={index}
