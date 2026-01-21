@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { PageHeader } from "../components/custom/PageHeader";
-import { StatisticsSection } from "../components/custom/StatisticsSection";
+import { PageHeader } from "../components/custom/PageHeader/PageHeader";
+import { StatisticsSection } from "../components/custom/StatisticsSection/StatisticsSection";
 import { StatsGrid } from "../components/custom/StatsGrid";
 import { UsersTable } from "../components/custom/UsersTable";
 import { UserModal } from "../components/custom/UserModal";
