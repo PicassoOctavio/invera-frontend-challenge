@@ -10,6 +10,7 @@ interface Props {
 
 export const StatisticsSection = ({ title = "" }: Props) => {
   const { data, isLoading } = useUsersTypes();
+  const colors = ["#4f46e5", "#10b981", "#6b7280"];
 
   if (isLoading) {
     return <StatisticsSectionSkeleton />;
@@ -38,7 +39,7 @@ export const StatisticsSection = ({ title = "" }: Props) => {
                         <span
                           className="h-2 w-2 rounded-full"
                           style={{
-                            backgroundColor: `var(--color-chart-${index + 1})`,
+                            backgroundColor: colors[index],
                           }}
                         />
                         {elem.type}
