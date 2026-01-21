@@ -6,8 +6,8 @@ export const UsersTableFilters = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-row items-center mx-6 my-4">
-      <h3 className="mr-4">All Users</h3>
+    <div className="flex items-center mx-6 my-4 flex-start w-full">
+      <h1 className="text-2xl font-semibold mr-6">All Users</h1>
       <Input
         placeholder="Search for..."
         onChange={(e) => dispatch(setSearch(e.target.value))}
