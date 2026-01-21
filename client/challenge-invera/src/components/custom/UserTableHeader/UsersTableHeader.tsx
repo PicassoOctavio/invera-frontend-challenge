@@ -1,10 +1,10 @@
 import type { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { setSort } from "../../store/userTable/userTableSlice";
+import { setSort } from "../../../store/userTable/userTableSlice";
 import { Checkbox } from "@radix-ui/react-checkbox";
 import { ArrowUpDown } from "lucide-react";
-import { Button } from "../ui/button";
-import { TableHeader, TableRow, TableHead } from "../ui/table";
+import { Button } from "../../ui/button";
+import { TableHeader, TableRow, TableHead } from "../../ui/table";
 
 interface Props {
   id: string;

@@ -15,7 +15,7 @@ import { UsersTableFilters } from "./UserTableFilters/UserTableFilters";
 import type { RootState } from "../../store/store";
 
 import type { User } from "@/types/dbResponse/users.response";
-import { UsersTableHeader } from "./UsersTableHeader";
+import { UsersTableHeader } from "./UserTableHeader/UsersTableHeader";
 
 interface Props {
   onEditUser?: (user: User) => void;
