@@ -8,9 +8,9 @@ import { Checkbox } from "../ui/checkbox";
 import { Table, TableBody, TableCell, TableRow } from "../ui/table";
 import { useUsers } from "../../hooks/useUsers";
 import { useDeleteUser } from "../../hooks/useDeleteUser";
-import { UserStatus } from "./UserStatus";
-import { UsersTablePagination } from "./UserTablePagination";
-import { UsersTableFilters } from "./UserTableFilters";
+import { UserStatus } from "./UserStatus/UserStatus";
+import { UsersTablePagination } from "./UsersTablePagination/UserTablePagination";
+import { UsersTableFilters } from "./UserTableFilters/UserTableFilters";
 
 import type { RootState } from "../../store/store";
 

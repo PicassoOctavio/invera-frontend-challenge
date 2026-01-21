@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Input } from "../../components/ui/input";
-import { setSearch } from "../../store/userTable/userTableSlice";
-import type { RootState } from "../../store/store";
+import { Input } from "../../ui/input";
+import { setSearch } from "../../../store/userTable/userTableSlice";
+import type { RootState } from "../../../store/store";
 
 export const UsersTableFilters = () => {
   const dispatch = useDispatch();

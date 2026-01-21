@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../ui/button";
-import type { RootState } from "../../store/store";
-import { setPage } from "../../store/userTable/userTableSlice";
+import { Button } from "../../ui/button";
+import type { RootState } from "../../../store/store";
+import { setPage } from "../../../store/userTable/userTableSlice";
 
 interface Props {
   total: number;

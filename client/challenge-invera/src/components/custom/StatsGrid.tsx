@@ -1,5 +1,5 @@
 import { Users, UserPlus, Heart, User } from "lucide-react";
-import { StatsCard } from "./StatsCard";
+import { StatsCard } from "./StatsCard/StatsCard";
 import { useUsersStatics } from "@/hooks/useUsersStatics";
 import { Skeleton } from "../ui/skeleton";
 

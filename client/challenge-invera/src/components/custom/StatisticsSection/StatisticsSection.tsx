@@ -1,8 +1,8 @@
 import type { UserTypeDistributionI } from "@/types/dbResponse/userTypes.response";
 import { Card, CardContent } from "@/components/ui/card";
-import { UsersRadialChart } from "./UsersRadialChart";
+import { UsersRadialChart } from "../UsersRadialChart";
 import { useUsersTypes } from "@/hooks/useUsersTypes";
-import { StatisticsSectionSkeleton } from "../loading/SkeletonStatisticsSection";
+import { StatisticsSectionSkeleton } from "../../loading/SkeletonStatisticsSection";
 
 interface Props {
   title: string;
