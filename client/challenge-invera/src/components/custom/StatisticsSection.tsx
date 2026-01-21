@@ -2,19 +2,23 @@ import type { UserTypeDistributionI } from "@/types/userTypes.response";
 import { Card, CardContent } from "@/components/ui/card";
 import { UsersRadialChart } from "./UsersRadialChart";
 import { useUsersTypes } from "@/hooks/useUsersTypes";
-import { Skeleton } from "@/components/ui/skeleton";
+import { StatisticsSectionSkeleton } from "../loading/SkeletonStatisticsSection";
 
 interface Props {
   title: string;
 }
 
 export const StatisticsSection = ({ title = "" }: Props) => {
-  const { data } = useUsersTypes();
+  const { data, isLoading } = useUsersTypes();
+
+  if (isLoading) {
+    return <StatisticsSectionSkeleton />;
+  }
 
   return (
     <Card className="bg-card">
       <CardContent className="p-6">
-        {data ? (
+        {data && (
           <>
             <h3 className="mb-6 text-lg font-semibold">{title}</h3>
             <div className="flex flex-col items-center gap-8 md:flex-row md:justify-evenly">
@@ -46,10 +50,6 @@ export const StatisticsSection = ({ title = "" }: Props) => {
               </ul>
             </div>
           </>
-        ) : (
-          <div className="flex flex-col items-center gap-8 md:flex-row">
-            <Skeleton />
-          </div>
         )}
       </CardContent>
     </Card>
