@@ -1,9 +1,8 @@
-// hooks/useUsers.ts
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import type { User } from "../types/dbResponse/users.response";
 import type { RootState } from "../store/store";
-import { getUsers } from "../actions/users.action";
+import { getUsers } from "../actions/getUsers.action";
 
 export const useUsers = () => {
   const { page, limit, search, sortBy, sortOrder, statusFilter } = useSelector(

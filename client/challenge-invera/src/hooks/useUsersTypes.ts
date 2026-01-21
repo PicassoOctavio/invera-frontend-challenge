@@ -1,4 +1,4 @@
-import { getUsersTypes } from "@/actions/userTypes.action";
+import { getUsersTypes } from "@/actions/getUserTypes.action";
 import type { UserTypesI } from "@/types/dbResponse/userTypes.response";
 import { useQuery } from "@tanstack/react-query";
 
