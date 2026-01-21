@@ -17,7 +17,11 @@ import type { RootState } from "../../store/store";
 import type { User } from "@/types/dbResponse/users.response";
 import { UsersTableHeader } from "./UsersTableHeader";
 
-export const UsersTable = () => {
+interface Props {
+  onEditUser?: (user: User) => void;
+}
+
+export const UsersTable = ({ onEditUser }: Props) => {
   const id = useId();
   const { data, isLoading, isError } = useUsers();
   const { limit } = useSelector((state: RootState) => state.usersTable);
@@ -88,7 +92,11 @@ export const UsersTable = () => {
               </TableCell>
 
               <TableCell className="flex gap-1">
-                <Button variant="ghost" size="icon">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => onEditUser?.(user)}
+                >
                   <PencilIcon className="h-4 w-4" />
                 </Button>
 
