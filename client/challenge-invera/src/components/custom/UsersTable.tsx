@@ -18,10 +18,13 @@ import { useUsers } from "@/hooks/useUsers";
 import { UserStatus } from "./UserStatus";
 import { UsersTablePagination } from "./UserTablePagination";
 import { UsersTableFilters } from "./UserTableFilters";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 
 export const UsersTable = () => {
   const id = useId();
   const { data, isLoading } = useUsers();
+  const { limit } = useSelector((state: RootState) => state.usersTable);
   //const { mutate: deleteUser } = useDeleteUser();
 
   if (isLoading) return <div>Loading...</div>;
@@ -30,8 +33,8 @@ export const UsersTable = () => {
     <div className="w-full space-y-4 rounded-lg border bg-card p-4">
       <div className="flex items-center justify-between">
         <UsersTableFilters />
-        <span className="text-sm text-muted-foreground">
-          1 - {data?.length} of 50
+        <span className="text-sm text-muted-foreground w-40">
+          1 - {limit} of {data?.length}
         </span>
       </div>
 
