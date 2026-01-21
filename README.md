@@ -34,39 +34,13 @@ El proyecto está organizado en dos carpetas principales:
 3. Desarrolla la interfaz según el diseño proporcionado
 4. Conecta tu aplicación con la API mock del servidor
 
-### Requerimientos de entrega:
-- Hacer un fork del proyecto y pushearlo en github.
-- La solución debe correr correctamente.
-- El Readme debe contener todas las instrucciones para poder levantar la aplicación, en caso de ser necesario, y explicar cómo se usa.
 
-## Requisitos
-
-### Obligatorios
-- Implementar la vista de usuarios con todas las secciones mostradas en el diseño:
-  - Estadísticas generales (Total Users, New Users, Top Users, Other Users)
-  - Gráfico circular con estadísticas (Organic, Social, Direct)
-  - Tabla de usuarios con paginación
-- Consumir la API mock para obtener los datos de usuarios
-- Implementar paginación en la tabla de usuarios
-- Respetar el diseño visual proporcionado
-- El código debe ser limpio y bien estructurado
-- Responsive design (adaptable a diferentes dispositivos)
-
-### Extras
-- Agregar funcionalidad de búsqueda
-- Agregar funcionalidad para agregar, editar y eliminar usuarios
-- Implementar ordenamiento en las columnas de la tabla
-- Añadir animaciones y transiciones
-- Añadir pruebas unitarias y/o de integración
-- Implementar modo oscuro/claro
-
-## Herramientas recomendadas
+## Herramientas usadas
 - React.js
 - TypeScript (recomendado)
-- Next.js (opcional)
-- CSS/SCSS, Tailwind CSS, Styled-components
-- ShadCN, Material UI, Chakra UI u otras bibliotecas de componentes
-- Jest, React Testing Library para pruebas
+- Tailwind CSS
+- ShadCN
+- React Testing Library para pruebas
 
 ## API del servidor
 
@@ -86,6 +60,3 @@ La API está construida con json-server v0.17 y cuenta con los siguientes endpoi
 
 - `GET /statics` - Obtiene las estadísticas generales (totalUsers, newUsers, topUsers, otherUsers)
 - `GET /userTypes` - Obtiene los datos para el gráfico circular (distribución de usuarios por tipo)
-
-
-¡Buena suerte! 
