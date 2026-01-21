@@ -1,4 +1,4 @@
-import type { UsersStaticsI } from "@/types/usersStatics.response";
+import type { UsersStaticsI } from "@/types/dbResponse/usersStatics.response";
 import { inveraApi } from "@/api/invera.api";
 
 export const getUsersStatics = async (): Promise<UsersStaticsI> => {

@@ -1,4 +1,4 @@
-import type { UserTypeDistributionI } from "@/types/userTypes.response";
+import type { UserTypeDistributionI } from "@/types/dbResponse/userTypes.response";
 
 interface ChartDataItem {
   name: string;

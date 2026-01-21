@@ -1,4 +1,4 @@
-import type { UsersStaticsI } from "@/types/usersStatics.response";
+import type { UsersStaticsI } from "@/types/dbResponse/usersStatics.response";
 import { getUsersStatics } from "@/actions/userStatics.action";
 import { useQuery } from "@tanstack/react-query";
 

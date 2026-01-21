@@ -1,5 +1,5 @@
 import { transformDistributionToChartData } from "@/helpers/transformDistributionToData";
-import type { UserTypesI } from "@/types/userTypes.response";
+import type { UserTypesI } from "@/types/dbResponse/userTypes.response";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 
 export const UsersRadialChart = ({ totalUsers, distribution }: UserTypesI) => {

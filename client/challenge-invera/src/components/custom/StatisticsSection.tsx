@@ -1,4 +1,4 @@
-import type { UserTypeDistributionI } from "@/types/userTypes.response";
+import type { UserTypeDistributionI } from "@/types/dbResponse/userTypes.response";
 import { Card, CardContent } from "@/components/ui/card";
 import { UsersRadialChart } from "./UsersRadialChart";
 import { useUsersTypes } from "@/hooks/useUsersTypes";
