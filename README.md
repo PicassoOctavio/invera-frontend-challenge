@@ -15,29 +15,9 @@ El proyecto está organizado en dos carpetas principales:
 - `/server` - Contiene la API mock
 - `/client` - En este directorio crearas la solucion FrontEnd
 
-## Cómo empezar
-
-1. Hace un fork del repositorio para tu cuenta personal de GitHub
-2. Cloná tu fork: `git clone https://github.com/TU_USUARIO/NOMBRE_REPO.git`
-3. Entrá al directorio del proyecto: `cd NOMBRE_REPO`
-
-### Configurar y ejecutar el servidor
-
-1. Navega a la carpeta del servidor: `cd server`
-2. Instala las dependencias: `npm install`
-3. Inicia el servidor: `npm run dev`
-
-### Desarrollar el cliente
-
-1. Navega a la carpeta del cliente: `cd client`
-2. Crea tu aplicación frontend usando las herramientas permitidas
-3. Desarrolla la interfaz según el diseño proporcionado
-4. Conecta tu aplicación con la API mock del servidor
-
-
 ## Herramientas usadas
 - React.js
-- TypeScript (recomendado)
+- TypeScript 
 - Tailwind CSS
 - ShadCN
 - React Testing Library para pruebas
